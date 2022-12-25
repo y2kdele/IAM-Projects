@@ -1,9 +1,9 @@
   Type: AWS::IAM::Group
   Properties:
-    GroupName: Audit
-    Path: /
-    Policies:
-      - Ec2fullaccess
+    - GroupName: Audit
+  Path: /
+  Policies:
+  - Ec2fullaccess
 
 
            
