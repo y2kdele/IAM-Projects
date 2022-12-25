@@ -1,0 +1,9 @@
+Audit:
+  Type: AWS::IAM::Group
+  Properties:
+    Path: 
+    Policies:
+      - Ec2fullaccess
+
+
+           
