@@ -10,9 +10,9 @@
         LoginProfile:
           Password: !Ref MyPass
         Groups:
-          !Sub '${MyIAMGroup}'
-      DependsOn: MyIAMGroup
-  MyIAMGroup:
+          !Sub '${MyIAMGroupAudit}'
+      DependsOn: MyIAMGroupAudit
+  MyIAMGroupAudit:
    Type: AWS::IAM::Group
    Properties:
     GroupName: !Join ["*", [ !Ref "AWS::Region", "Prod"]]
