@@ -9,12 +9,8 @@
         UserName: !Join ["*", [ !Ref "AWS::Region", "James"]]
         LoginProfile:
           Password: !Ref MyPass
-        Groups:
-          !Sub '${MyIAMGroupAudit}'
-      DependsOn: MyIAMGroupAudit
-  MyIAMGroupAudit:
-   Type: AWS::IAM::Group
-   Properties:
+    Type: AWS::IAM::Group
+    Properties:
     GroupName: !Join ["*", [ !Ref "AWS::Region", "Prod"]]
     Policies:
       - PolicyName: MyProdPolicy
