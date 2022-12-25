@@ -1,3 +1,4 @@
+  iamGroup:
   Type: AWS::IAM::Group
   Properties:
     PolicyDocument:  JSON 
