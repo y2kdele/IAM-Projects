@@ -1,13 +1,34 @@
-  iamGroup:
-  Type: AWS::IAM::Group
-  Properties:
-    PolicyDocument:  JSON 
-    PolicyName: GroupPolicy
-  GroupName: Audit
-  Path: /
-  Policies: 
-    - AmazonEc2fullAccess
-    - AdministratorAccess
+  Parameters:
+    MyPass:
+      Type: String
+  
+  Resources:
+    MyIAMUser:
+      Type: AWS::IAM::User  
+      Properties:
+        UserName: !Join ["*", [ !Ref "AWS::Region", "James"]]
+        LoginProfile:
+          Password: !Ref MyPass
+        Groups:
+          !Sub '${MyIAMGroup}'
+      DependsOn: MyIAMGroup
+  MyIAMGroup:
+   Type: AWS::IAM::Group
+   Properties:
+    GroupName: !Join ["*", [ !Ref "AWS::Region", "Prod"]]
+    Policies:
+      - PolicyName: MyProdPolicy
+        PolicyDocument: 
+          Statement:
+            - Effect: Allow
+              Action:
+                - s3:Get*
+              Resource: "*"
 
-
-           
+  
+  
+  
+  
+  
+  
+ 
