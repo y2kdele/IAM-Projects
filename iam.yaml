@@ -1,6 +1,7 @@
   Type: AWS::IAM::Group
   Properties:
     PolicyDocument:  JSON 
+    PolicyName: GroupPolicy
   GroupName: Audit
   Path: /
   Policies: 
