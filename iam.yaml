@@ -1,4 +1,4 @@
-Audit:
+AuditGroup:
   Type: AWS::IAM::Group
   Properties:
     Path: 
